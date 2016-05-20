@@ -11,13 +11,24 @@ export class CanvasComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    var c = <HTMLCanvasElement>document.getElementById("myCanvas");
+    var c = <HTMLCanvasElement>document.getElementById("mainCanvas");
     var ctx = c.getContext("2d");
-    ctx.moveTo(100,100);
-    ctx.lineTo(200,100);
-    ctx.lineTo(100,500);
-    ctx.lineTo(100,100);
-    ctx.stroke();
+    var img = new Image();
+
+    var imgW;
+    var imgH;
+
+    img.onload = function() {
+
+      imgW = img.width;
+      imgH = img.height;
+      c.width=imgW;
+      c.height=imgH;
+
+      ctx.drawImage(img, 0, 0);
+    };
+
+    img.src = './clips/kupur.jpg';
   }
 
 }
