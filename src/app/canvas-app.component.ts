@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['canvas-app.component.css']
 })
 export class CanvasAppAppComponent {
-  title = 'canvas-app works!';
+  title = 'Ana Sayfa!';
 }
