@@ -20,9 +20,11 @@ export class CanvasesComponent implements OnInit {
     var imgSecond = new Image();
 
     imgFirst.onload = function() {
-
       ctxFirst.drawImage(imgFirst, 0, 0);
-      ctxSecond.drawImage(imgSecond, 0, 0);
+    };
+
+    imgSecond.onload = function() {
+      ctxSecond.drawImage(imgSecond, 320, 0);
     };
 
     imgFirst.src = './clips/kupurFirst.jpg';
