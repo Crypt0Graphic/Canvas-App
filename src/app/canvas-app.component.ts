@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CanvasComponent } from './+canvas';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { CanvasesComponent } from './+canvases';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +12,8 @@ import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([
-  {path: '/canvas', component: CanvasComponent}
+  {path: '/canvas', component: CanvasComponent},
+  {path: '/canvases', component: CanvasesComponent}
 ])
 export class CanvasAppAppComponent {
   title = 'Ana Sayfa!';
