@@ -17,14 +17,14 @@ export class FabricComponent implements OnInit {
     var canvas = new fabric.Canvas('c');
 
     //Alternatif 1
-    // fabric.Image.fromURL('../../clips/kupurFirst.jpg', function(oImg) {
-    // // scale image down, and flip it, before adding it onto canvas
-    // canvas.add(oImg);
-    // });
-    //
-    // fabric.Image.fromURL('../../clips/kupurSecond.jpg', function(oImg) {
-    // canvas.add(oImg);
-    // });
+    fabric.Image.fromURL('../../clips/kupurFirst.jpg', function(oImg) {
+    // scale image down, and flip it, before adding it onto canvas
+    canvas.add(oImg);
+    });
+
+    fabric.Image.fromURL('../../clips/kupurSecond.jpg', function(oImg) {
+    canvas.add(oImg);
+    });
 
     canvas.on({
     'object:moving': onChange,
