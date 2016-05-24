@@ -3,6 +3,7 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'fabric': 'vendor/fabric/dist/fabric.js'
 };
 
 /** User packages configuration. */
@@ -31,6 +32,7 @@ const barrels: string[] = [
   'app/shared',
   'app/+canvas',
   'app/+canvases',
+  'app/+fabric',
   /** @cli-barrel */
 ];
 
