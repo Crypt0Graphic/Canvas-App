@@ -13,7 +13,7 @@ export class FabricComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() { //Git Test
     var canvas = new fabric.Canvas('c');
 
     //Alternatif 1
