@@ -12,7 +12,7 @@ module.exports = function(defaults) {
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
       '@angular/**/*.js',
-      'fabric/dist/*.js' // Ben Ekledim
+      'fabric/dist/*.js'
     ]
   });
 };
