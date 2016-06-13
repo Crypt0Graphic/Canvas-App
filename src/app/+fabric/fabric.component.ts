@@ -8,15 +8,73 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FabricComponent implements OnInit {
 
+  public canvas: any;
+  public src: string;
+
   constructor() { }
 
   ngOnInit() {
-    var canvas = new fabric.Canvas('c');
-    var imgElement1 = <HTMLImageElement>document.getElementById('my-image1');
-    var imgElement2 = <HTMLImageElement>document.getElementById('my-image2');
 
-    var img1 = new fabric.Image(imgElement1, { cornerColor: 'Red', borderColor: 'Red', lockUniScaling: true, transparentCorners: false, cornerSize: 6 });
-    var img2 = new fabric.Image(imgElement2, { cornerColor: 'Red', borderColor: 'Red', lockUniScaling: true, transparentCorners: false, cornerSize: 6 });
-    canvas.add(img1, img2);
+    this.canvas = new fabric.Canvas('c');
+    this.src = "../../clips/kupurSecond.jpg";
+
+    loadCanvas(this.src, this.canvas);
+
+
+    // Works normally until click event (clip1) fires
+    this.canvas.on('mouse:down', function (event) {
+      console.log("Down");
+    });
   }
+
+  // Problem with this.canvas
+  public clip1() {
+    loadCanvas(this.src, this.canvas);
+    this.canvas.clipTo = function (ctx) {
+      console.log("clip1");
+    };
+
+    //this.canvas.off('mouse:down');
+
+  };
+
+  // No problem with new canvas element
+  public clip2() {
+    var canvas = new fabric.Canvas('c');
+    loadCanvas(this.src, canvas);
+    //canvas.stateful = false;
+
+    canvas.clipTo = (ctx) => {
+      console.log("clip2");
+    };
+  }
+
 }
+
+var loadCanvas = (src: string, canvas: any) => {
+  fabric.Image.fromURL(src, (oImg) => {
+    canvas.add(oImg);
+  }, { hasControls: false, selectable: false, evented: false, strokeDashArray: [2, 2], opacity: 1 });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
